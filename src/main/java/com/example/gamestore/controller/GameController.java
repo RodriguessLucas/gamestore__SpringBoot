@@ -1,12 +1,13 @@
 package com.example.gamestore.controller;
 
-import com.example.gamestore.dto.GameDTO;
-import com.example.gamestore.service.GameService;
+import java.util.List;
+
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
+import com.example.gamestore.dto.GameDTO;
+import com.example.gamestore.service.GameService;
 
 @RestController
 @RequestMapping(value = "/games")
@@ -21,6 +22,8 @@ public class GameController {
     public List<GameDTO> findAll (){
         return gameService.findAll();
     }
+
+    //oi
 
 
 
