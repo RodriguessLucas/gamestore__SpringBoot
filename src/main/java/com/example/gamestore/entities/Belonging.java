@@ -1,5 +1,6 @@
 package com.example.gamestore.entities;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
@@ -13,14 +14,14 @@ public class Belonging {
 
     @EmbeddedId
     BelongingPK id = new BelongingPK();
-    private Integer belongingId;
+    private Integer position;
 
     public Belonging() {}
 
-    public Belonging(Game game, GameList gameList, Integer belongingId) {
+    public Belonging(Game game, GameList gameList, Integer position) {
         this.id.setGame(game);
         this.id.setGameList(gameList);
-        this.belongingId = belongingId;
+        this.position = position;
     }
 
     public BelongingPK getId() {
@@ -31,12 +32,12 @@ public class Belonging {
         this.id = id;
     }
 
-    public Integer getBelongingId() {
-        return belongingId;
+    public Integer getPosition() {
+        return position;
     }
 
-    public void setBelongingId(Integer belongingId) {
-        this.belongingId = belongingId;
+    public void setPosition(Integer position) {
+        this.position = position;
     }
 
     @Override
