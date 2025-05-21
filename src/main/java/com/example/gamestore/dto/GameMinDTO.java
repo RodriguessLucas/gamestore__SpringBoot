@@ -2,16 +2,16 @@ package com.example.gamestore.dto;
 
 import com.example.gamestore.entities.Game;
 
-public class GameDTO {
+public class GameMinDTO {
     private Long id;
     private String title;
     private Integer year;
     private String imgUrl;
     private String shortDescription;
 
-    public GameDTO() {}
+    public GameMinDTO() {}
 
-    public GameDTO(Game entity) {
+    public GameMinDTO(Game entity) {
         this.id = entity.getId();
         this.title = entity.getTitle();
         this.year = entity.getYear();

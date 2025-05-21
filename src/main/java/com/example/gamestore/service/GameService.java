@@ -2,9 +2,10 @@ package com.example.gamestore.service;
 
 
 import com.example.gamestore.dto.GameDTO;
-import com.example.gamestore.entities.Game;
+import com.example.gamestore.dto.GameMinDTO;
 import com.example.gamestore.repository.GameRepository;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -17,22 +18,18 @@ public class GameService {
         this.gameRepository = gameRepository;
     }
 
-    //Listar todos os jogos
-    public List<GameDTO> findAll() {
+    @Transactional(readOnly = true)
+    public List<GameMinDTO> findAll() {
         return gameRepository.findAll()
                 .stream()
-                .map(GameDTO::new)
+                .map(GameMinDTO::new)
                 .collect(Collectors.toList());
     }
 
-    //Procurar por ID
-    public Game findById(Long id) {
-        return gameRepository.findById(id).orElse(null);
+    @Transactional(readOnly = true)
+    public GameDTO findById(Long id) {
+        return new GameDTO(gameRepository.findById(id).get());
     }
 
-    //Buscar por categoria
-
-
-    //Excluir
 
 }
